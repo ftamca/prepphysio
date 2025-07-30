@@ -1,14 +1,15 @@
 # prepphysio
+
 Convert Siemens MR physiological data logs for analysis
 
 Requires: Perl
 
-Usage: prepphysio [options] <physio file prefix>
+Usage: prepphysio [options] \<physio file prefix>
 
  Preprocess Siemens physiological data dump files and convert them into a
  simpler format usable by AFNI and pretty much any other software.
 
- <physio file prefix> is the common prefix of the physio data files. Do not
+ \<physio file prefix> is the common prefix of the physio data files. Do not
  include the .ecg/.ext/.puls/.resp suffix. The output file names will have a
  .1D suffix and will contain only the physio data acquired during the run
  (omitting physio data before and after the run). The outputs may be used
@@ -31,7 +32,7 @@ Usage: prepphysio [options] <physio file prefix>
  included. Stop the ECG logging if you are not using ECG (e.g. start all signals
  and then immediately stop ECG in ideacommandtool).
 
- The [options], which must appear before <physio file prefix>, include:
+ The [options], which must appear before \<physio file prefix>, include:
 
  -d  Disable TR consistency check. Mostly for troubleshooting. Unless you are
      deliberately varying the TR, which is unlikely, failing this sanity check
@@ -56,19 +57,19 @@ Usage: prepphysio [options] <physio file prefix>
 
  -e  Output ECG data too. ECG data are ignored by default; we prefer pulse.
 
- -f <n>  Skip the first <n> triggers. Use this to discard physio data acquired
+ -f \<n>  Skip the first \<n> triggers. Use this to discard physio data acquired
      during a pre-scan period when images were not acquired (despite triggering)
      or where those images will be discarded before any physio correction. The
      goal is to be left with only the physio data associated with the images
      that are to be processed. See also -l and Example 2.
 
- -l <n>  Skip the last <n> triggers. Use this to discard physio data acquired
+ -l \<n>  Skip the last \<n> triggers. Use this to discard physio data acquired
      during a post-scan period when images were not acquired (despite
      triggering) or where those images will be discarded before any physio
      correction. The goal is to be left with only the physio data associated
      with the images that are to be processed. See also -f and Example 2.
 
- -F <n>  Keep the first <n> triggers only and skip the remainder. Use this to
+ -F \<n>  Keep the first \<n> triggers only and skip the remainder. Use this to
      keep only the data at the beginning when the rest is irrelevant, for
      example if you forgot to stop the physio recording. The goal is to be left
      with only the physio data associated with the images that are to be
